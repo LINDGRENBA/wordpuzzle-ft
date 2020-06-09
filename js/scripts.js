@@ -24,7 +24,7 @@ $(document).ready(function() {
     
     let inputString = $("input[name=input-string]").val();
     let newString = checkForVowels(inputString);
-
+    $("input[name=input-string]").val("");
     $("#output").text(newString);
   });
 });
