@@ -1,16 +1,19 @@
 // business logic
 let checkForVowels = function(inputString) {
+  let finalArray = [];
   let stringArray = inputString.split("");
   const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
-  for (index = 0; index <= index.length - 1; index += 1) {
-    vowels.forEach(function(vowel) {
-      if (vowel === stringArray[index]) {
-        
-      }
-    })
+  for (let index = 0; index <= stringArray.length - 1; index += 1) {
+    finalArray.push(stringArray[index]);
+    for (let j = 0; j <= vowels.length - 1; j++) {
+      if (vowels[j] === stringArray[index]) {
+        finalArray.pop();
+        finalArray.push("-");
+        break;
+      };
+    };
   };
-
-  
+  return finalArray.join("");
 };
 
 
@@ -22,6 +25,6 @@ $(document).ready(function() {
     let inputString = $("input[name=input-string]").val();
     let newString = checkForVowels(inputString);
 
-    // $("#output").text(inputString);
+    $("#output").text(newString);
   });
 });
